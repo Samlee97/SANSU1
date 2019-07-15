@@ -25,7 +25,7 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-.container {
+#container {
   padding: 16px;
 }
 label {
