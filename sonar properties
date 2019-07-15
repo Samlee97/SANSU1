@@ -1,5 +1,5 @@
-sonar.projectKey=sam-app1 Maven Webapp
-sonar.projectName=sam-app1 Maven Webapp
+sonar.projectKey=sam-app1
+sonar.projectName=sam-app1
 sonar.projectVersion=1.0
 sonar.language=java
 sonar.java.sources=.
