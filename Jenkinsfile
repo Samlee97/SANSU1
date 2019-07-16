@@ -9,11 +9,11 @@ pipeline{
             steps{
                 
                 withCredentials([string(credentialsId: 'Sansu-git', variable: 'git')]) {
-                echo "My password is '${git}'!"
+              
                 checkout([$class: 'GitSCM',
                 branches: [[name: 'origin/dev']],
                 extensions: [[$class: 'WipeWorkspace']],
-                userRemoteConfigs: [[url: "${git}"]]
+            
                 ])
                 }
             }
