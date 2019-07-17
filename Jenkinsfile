@@ -56,7 +56,7 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
 
     }
 }
-}
+
  post {
     success {
       slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
@@ -65,4 +65,5 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
       slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
     }
   }
+}
 
