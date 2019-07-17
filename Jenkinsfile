@@ -13,6 +13,7 @@ pipeline{
                 checkout([$class: 'GitSCM',
                 branches: [[name: 'origin/dev']],
                 extensions: [[$class: 'WipeWorkspace']],
+                userRemoteConfigs: [[url: "${git}"]]
             
                 ])
                 }
