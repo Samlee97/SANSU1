@@ -5,20 +5,7 @@ pipeline{
         maven 'mymaven' 
     }
     stages{
-        stage('checkout'){
-            steps{
-                
-                withCredentials([string(credentialsId: 'Sansu-git', variable: 'git')]) {
-              
-                checkout([$class: 'GitSCM',
-                branches: [[name: 'origin/dev']],
-                extensions: [[$class: 'WipeWorkspace']],
-                userRemoteConfigs: [[url: "${git}"]]
-            
-                ])
-                }
-            }
-        }
+        
       stage ('build and test'){
             steps{
                 
@@ -57,13 +44,20 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
     }
 }
 
- post {
-    success {
-      slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    }
-    failure {
-      slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    }
-  }
-}
+post{
+   success {
+          script{
+              d='{"teamName":"KSR","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'",buildStatus":"SUCCESS"}'
+              sh "curl -H 'Content-Type: application/json' -X POST -d '${d}'  http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/ExtremeFeedbackSystem/api/addbuildinfo"
+          }
+   }
+         failure {
+            script{
+              d='{"teamName":"KSR","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'",buildStatus":"FAILURE"}'
+        
+            sh "curl -H 'Content-Type: application/json' -X POST -d '${d}'  http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/ExtremeFeedbackSystem/api/addbuildinfo"
+         }
 
+}
+}
+}
