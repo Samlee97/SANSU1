@@ -1,3 +1,4 @@
+
 pipeline{
     agent any
     tools {
@@ -48,7 +49,7 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
 }
 
 
-}
+
 
 post{
    success {
@@ -67,3 +68,4 @@ post{
 }
 }
 }
+
