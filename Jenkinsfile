@@ -54,13 +54,13 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
 post{
    success {
           script{
-              d='{"teamName":"Kishan ki Shaan","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'","buildStatus":"SUCCESS"}'
+              d='{"teamName":"TW","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'","buildStatus":"SUCCESS"}'
               sh "curl -H 'Content-Type: application/json' -X POST -d '${d}' http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/api/addbuildinfo"
           }
    }
          failure {
             script{
-              d='{"teamName":"Kishan ki Shaan","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'","buildStatus":"FAILURE"}'
+              d='{"teamName":"TW","jobtitle":"'+JOB_NAME+'","bNumber":"'+BUILD_NUMBER+'","bUrl":"'+BUILD_URL+'","buildStatus":"FAILURE"}'
         
             sh "curl -H 'Content-Type: application/json' -X POST -d '${d}' http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/Backend_XFS/api/addbuildinfo"
          }
