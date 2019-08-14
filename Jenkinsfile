@@ -40,8 +40,8 @@ sh label: '', script: "curl -u $usr:$pass --upload-file target/sam-app1.war http
             steps{
               withCredentials([usernamePassword(credentialsId: 'XFS_Deployment', passwordVariable: 'pass', usernameVariable: 'userId')]) {
                     sh "cd target;ls"
-                    sh label: '', script:'curl -u $userId:$pass  http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/manager/text/undeploy?path=/Backend_XFS'
-                    sh label: '', script: 'curl -u  $userId:$pass --upload-file target/sam-app1.war http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/manager/text/deploy?config=file:/var/lib/tomcat8/sam-app1.war\\&path=/Backend_XFS'
+                    sh label: '', script:'curl -u $userId:$pass  http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/manager/text/undeploy?path=/KSR'
+                    sh label: '', script: 'curl -u  $userId:$pass --upload-file target/sam-app1.war http://ec2-52-66-245-186.ap-south-1.compute.amazonaws.com:8080/manager/text/deploy?config=file:/var/lib/tomcat8/sam-app1.war\\&path=/KSR'
             }
         }
 
