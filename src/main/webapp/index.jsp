@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head
+<head>
     <meta charset="UTF-8">
     <title>Sign-Up/Login Form</title>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
@@ -212,7 +212,7 @@
            
             
             <div id="login">
-            <form action ="login.jsp" method="post"> <br/>
+            <form action ="" method="post"> <br/>
                 <h1>Log in to continue</h1>
                                     <div class="field-wrap">
                         <label>User Name<span class="req">*</span></label>
@@ -234,7 +234,7 @@
        
         </div>
         </body>
-        </html>
+      
   
      
   
