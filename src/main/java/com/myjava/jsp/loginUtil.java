@@ -4,6 +4,6 @@ public class loginUtil {
 	
 public static String makeItLower(String data)
 {
-	return data.toLowerCase();
+	return data.toLowerCase()
 }
 }
